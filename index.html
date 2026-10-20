@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulação de Sabonete Líquido - Calculadora e Guia</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                        },
+                        cyan: {
+                            50: '#ecfeff',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .step-checkbox:checked + label {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-teal-100 text-teal-700 rounded-lg">
+                    <i data-lucide="flask-conical" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-slate-900 leading-tight">CosmeLab Pro</h1>
+                    <p class="text-xs text-slate-500">Formulação de Sabonete Líquido</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full border border-slate-200">
+                <i data-lucide="beaker" class="w-4 h-4 text-teal-600"></i>
+                <span>Guia de Manipulação</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
+
+        <!-- Banner / Hero Section -->
+        <section class="bg-gradient-to-r from-teal-800 to-cyan-900 rounded-2xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
+            <div class="relative z-10 max-w-2xl space-y-3">
+                <span class="inline-block bg-teal-500/30 text-teal-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider border border-teal-400/20">Manipulação Laboratorial</span>
+                <h2 class="text-2xl sm:text-3xl font-bold">Calculadora de Lote & Procedimento Guiado</h2>
+                <p class="text-teal-100 text-sm sm:text-base leading-relaxed">
+                    Insira a quantidade desejada do seu lote em gramas para obter instantaneamente a dosagem precisa de cada matéria-prima e acompanhe a produção passo a passo.
+                </p>
+            </div>
+            <!-- Decorative SVG Icon -->
+            <i data-lucide="sparkles" class="absolute -right-6 -bottom-6 w-48 h-48 text-white/5 pointer-events-none"></i>
+        </section>
+
+        <!-- Main Grid: Calculator & Steps -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- Section 1: Calculadora de Lote (5 cols on desktop) -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="calculator" class="w-5 h-5 text-teal-600"></i>
+                            <h3 class="font-bold text-slate-800 text-lg">Tamanho do Lote</h3>
+                        </div>
+                        <span class="text-xs text-slate-500 font-medium">100% m/m</span>
+                    </div>
+
+                    <!-- Input Controls -->
+                    <div class="space-y-4">
+                        <div>
+                            <label for="batchSize" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
+                                Quantidade total desejada (g)
+                            </label>
+                            <div class="relative rounded-xl shadow-sm">
+                                <input type="number" id="batchSize" value="1000" min="1" step="10"
+                                    class="w-full text-xl font-bold py-3 pl-4 pr-12 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition text-slate-800 bg-slate-50/50">
+                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-400 font-medium">
+                                    g
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Presets -->
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-slate-500">Atalhos:</span>
+                            <button onclick="setBatch(250)" class="px-2.5 py-1 text-xs font-medium rounded-lg border border-slate-200 hover:bg-slate-100 text-slate-600 transition">250g</button>
+                            <button onclick="setBatch(500)" class="px-2.5 py-1 text-xs font-medium rounded-lg border border-slate-200 hover:bg-slate-100 text-slate-600 transition">500g</button>
+                            <button onclick="setBatch(1000)" class="px-2.5 py-1 text-xs font-medium rounded-lg border border-slate-200 hover:bg-slate-100 text-slate-600 transition">1.000g</button>
+                            <button onclick="setBatch(5000)" class="px-2.5 py-1 text-xs font-medium rounded-lg border border-slate-200 hover:bg-slate-100 text-slate-600 transition">5.000g</button>
+                        </div>
+                    </div>
+
+                    <!-- Ingredients Table -->
+                    <div class="mt-6 border-t border-slate-100 pt-4">
+                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Tabela de Ingredientes</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm">
+                                <thead>
+                                    <tr class="text-xs text-slate-400 border-b border-slate-100">
+                                        <th class="pb-2 font-medium">Insumo</th>
+                                        <th class="pb-2 font-medium text-right">%</th>
+                                        <th class="pb-2 font-medium text-right">Peso (g)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ingredientsBody" class="divide-y divide-slate-100">
+                                    <!-- Dynamic rows inserted by JavaScript -->
+                                </tbody>
+                                <tfoot>
+                                    <tr class="font-bold text-slate-800 border-t border-slate-200">
+                                        <td class="pt-3">Total</td>
+                                        <td class="pt-3 text-right text-teal-600">100%</td>
+                                        <td id="totalWeight" class="pt-3 text-right text-teal-600">1000.0 g</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Note Box -->
+                <div class="p-4 bg-amber-50/80 border border-amber-200/60 rounded-xl text-amber-900 text-xs leading-relaxed space-y-1">
+                    <div class="flex items-center space-x-1.5 font-bold text-amber-800 mb-1">
+                        <i data-lucide="info" class="w-4 h-4"></i>
+                        <span>Aviso sobre conversão Massa x Volume</span>
+                    </div>
+                    <p>
+                        Os valores em gramas são calculados diretamente para porcentagens em massa (m/m). Para medir em mililitros (mL), é indispensável considerar a densidade específica de cada insumo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 2: Procedimento Guiado (7 cols on desktop) -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="list-checks" class="w-5 h-5 text-teal-600"></i>
+                            <h3 class="font-bold text-slate-800 text-lg">Procedimento por Fases</h3>
+                        </div>
+                        <button onclick="resetChecklist()" class="text-xs font-medium text-slate-500 hover:text-teal-600 flex items-center gap-1 transition">
+                            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                            <span>Reiniciar</span>
+                        </button>
+                    </div>
+
+                    <!-- Steps List -->
+                    <div class="space-y-6">
+
+                        <!-- Fase 1 -->
+                        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/60 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-100/80 px-2.5 py-0.5 rounded-md">
+                                    Fase 1 — Aquosa
+                                </span>
+                                <span id="fase1-qty" class="text-xs font-semibold text-slate-500"></span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" id="step1" class="step-checkbox mt-1 h-4 w-4 text-teal-600 rounded border-slate-300 focus:ring-teal-500 cursor-pointer">
+                                <label for="step1" class="text-sm text-slate-700 cursor-pointer leading-relaxed">
+                                    Misturar a <strong>Água</strong>, <strong>EDTA</strong> e <strong>Glicerina</strong> em um béquer. Se os componentes não solubilizarem completamente, pode ser necessário aquecer suavemente sob controle térmico.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Fase 2 -->
+                        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/60 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold uppercase tracking-wider text-cyan-700 bg-cyan-100/80 px-2.5 py-0.5 rounded-md">
+                                    Fase 2 — Solubilização dos Parabenos
+                                </span>
+                                <span id="fase2-qty" class="text-xs font-semibold text-slate-500"></span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" id="step2" class="step-checkbox mt-1 h-4 w-4 text-teal-600 rounded border-slate-300 focus:ring-teal-500 cursor-pointer">
+                                <label for="step2" class="text-sm text-slate-700 cursor-pointer leading-relaxed">
+                                    Misturar <strong>Propilenoglicol</strong>, <strong>Metilparabeno</strong> e <strong>Propilparabeno</strong> em um béquer separado. Aquecer suavemente se necessário para favorecer a completa solubilização dos conservantes.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Fase 3 -->
+                        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/60 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100/80 px-2.5 py-0.5 rounded-md">
+                                    Fase 3 — Base Tensoativa
+                                </span>
+                                <span id="fase3-qty" class="text-xs font-semibold text-slate-500"></span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" id="step3" class="step-checkbox mt-1 h-4 w-4 text-teal-600 rounded border-slate-300 focus:ring-teal-500 cursor-pointer">
+                                <label for="step3" class="text-sm text-slate-700 cursor-pointer leading-relaxed">
+                                    Em um béquer principal, combinar o <strong>Lauril</strong> e a <strong>Dietanolamida</strong>. Incorporar gradualmente as misturas prontas da <strong>Fase 1</strong> e <strong>Fase 2</strong> sob agitação moderada.
+                                </label>
+                            </div>
+                            <div class="flex items-start space-x-3 pt-2 border-t border-slate-200/60">
+                                <input type="checkbox" id="step4" class="step-checkbox mt-1 h-4 w-4 text-teal-600 rounded border-slate-300 focus:ring-teal-500 cursor-pointer">
+                                <label for="step4" class="text-sm text-slate-700 cursor-pointer leading-relaxed">
+                                    Por último, adicionar a <strong>Betaína</strong> conforme a sequência anotada para auxílio na viscosidade e estabilização de espuma.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Fase 4 -->
+                        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/60 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-700 bg-slate-200 px-2.5 py-0.5 rounded-md">
+                                    Fase 4 — Diluição e Testes
+                                </span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" id="step5" class="step-checkbox mt-1 h-4 w-4 text-teal-600 rounded border-slate-300 focus:ring-teal-500 cursor-pointer">
+                                <label for="step5" class="text-sm text-slate-700 cursor-pointer leading-relaxed">
+                                    Realizar teste de diluição final (ex: proporção 1:3) e verificação visual em béquer de teste. Ajustar pH para a faixa fisiológica se necessário.
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section 3: Guia de Funções dos Ingredientes -->
+        <section class="space-y-4">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="book-open" class="w-5 h-5 text-teal-600"></i>
+                <h3 class="font-bold text-slate-800 text-xl">Guia de Funções dos Ingredientes</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="functionCards">
+                <!-- Cards renderizados dinamicamente via JS -->
+            </div>
+        </section>
+
+        <!-- Section 4: Observações Importantes & Segurança -->
+        <section class="bg-slate-100/80 border border-slate-200/80 rounded-2xl p-6 space-y-4">
+            <div class="flex items-center space-x-2 text-slate-800 font-bold text-lg">
+                <i data-lucide="shield-alert" class="w-5 h-5 text-teal-600"></i>
+                <h3>Observações e Controle de Qualidade</h3>
+            </div>
+            <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm text-slate-700">
+                <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-1">
+                    <span class="font-bold text-slate-900 block">1. Especificação Comercial</span>
+                    <span>Verifique a concentração exata (m/m ou v/v) do ingrediente "Lauril" fornecido pelo seu distribuidor.</span>
+                </li>
+                <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-1">
+                    <span class="font-bold text-slate-900 block">2. pH e Estabilidade</span>
+                    <span>Para uso dermatológico, analise e ajuste o pH final (ideal entre 5,5 e 6,5) e avalie a eficácia conservante.</span>
+                </li>
+                <li class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-1">
+                    <span class="font-bold text-slate-900 block">3. Boas Práticas (BPF)</span>
+                    <span>Siga as FISPQ/FISPQs dos reativos, utilize EPIs adequados no laboratório e faça testes antes da produção em escala.</span>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+        <p>CosmeLab Pro — Formulador Dermatológico e Cosmético © 2026</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Dados dos ingredientes
+        const ingredients = [
+            { name: 'Lauril', pct: 60.0, category: 'Tensoativo Principal', desc: 'Agente de limpeza primário e responsável pela formação abundante de espuma.', phase: 3 },
+            { name: 'Dietanolamida', pct: 9.0, category: 'Sobretensioativo / Viscosificante', desc: 'Auxilia na elevação da viscosidade e estabiliza a espuma.', phase: 3 },
+            { name: 'Betaína', pct: 9.0, category: 'Tensoativo Anfótero', desc: 'Reduz a irritabilidade da formulação e melhora a sensibilidade cutânea.', phase: 3 },
+            { name: 'Glicerina', pct: 7.0, category: 'Umectante', desc: 'Retém a umidade na pele, evitando o ressecamento provocado pela limpeza.', phase: 1 },
+            { name: 'EDTA', pct: 0.1, category: 'Agente Quelante', desc: 'Se liga a íons metálicos evitando degradação e rancificação do produto.', phase: 1 },
+            { name: 'Metilparabeno', pct: 0.2, category: 'Conservante (Fungicida)', desc: 'Protege a formulação contra crescimento de fungos e leveduras.', phase: 2 },
+            { name: 'Propilparabeno', pct: 0.2, category: 'Conservante (Bactericida)', desc: 'Atua contra bactérias mantendo a segurança microbiológica.', phase: 2 },
+            { name: 'Propilenoglicol', pct: 5.0, category: 'Solvente / Umectante', desc: 'Facilita a solubilização dos parabenos e complementa a hidratação.', phase: 2 },
+            { name: 'Água', pct: 9.5, category: 'Veículo', desc: 'Solvente universal utilizado para dissolução e acerto do volume total.', phase: 1 }
+        ];
+
+        // Atualiza a tabela de ingredientes e somatórios
+        function updateCalculations() {
+            const batchInput = document.getElementById('batchSize');
+            let batchSize = parseFloat(batchInput.value);
+
+            if (isNaN(batchSize) || batchSize <= 0) {
+                batchSize = 0;
+            }
+
+            const tbody = document.getElementById('ingredientsBody');
+            tbody.innerHTML = '';
+
+            let phase1Total = 0;
+            let phase2Total = 0;
+            let phase3Total = 0;
+
+            ingredients.forEach(item => {
+                const amount = (item.pct / 100) * batchSize;
+
+                // Sum phase quantities
+                if (item.phase === 1) phase1Total += amount;
+                if (item.phase === 2) phase2Total += amount;
+                if (item.phase === 3) phase3Total += amount;
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 transition-colors';
+                tr.innerHTML = `
+                    <td class="py-2.5 font-medium text-slate-700">${item.name}</td>
+                    <td class="py-2.5 text-right text-slate-500">${item.pct}%</td>
+                    <td class="py-2.5 text-right font-bold text-teal-700">${amount.toFixed(1).replace('.', ',')} g</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('totalWeight').innerText = `${batchSize.toFixed(1).replace('.', ',')} g`;
+
+            // Update Phase Summaries in Steps
+            document.getElementById('fase1-qty').innerText = `Peso total: ${phase1Total.toFixed(1).replace('.', ',')} g`;
+            document.getElementById('fase2-qty').innerText = `Peso total: ${phase2Total.toFixed(1).replace('.', ',')} g`;
+            document.getElementById('fase3-qty').innerText = `Peso total: ${phase3Total.toFixed(1).replace('.', ',')} g`;
+        }
+
+        // Define valor rápido do lote
+        function setBatch(size) {
+            document.getElementById('batchSize').value = size;
+            updateCalculations();
+        }
+
+        // Renderiza cards de funções dos ingredientes
+        function renderFunctionCards() {
+            const container = document.getElementById('functionCards');
+            container.innerHTML = '';
+
+            ingredients.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-xl p-4 border border-slate-200 shadow-sm hover:shadow-md transition space-y-2';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-0.5 rounded-md border border-teal-100">${item.category}</span>
+                        <span class="text-xs font-semibold text-slate-400">${item.pct}%</span>
+                    </div>
+                    <h4 class="font-bold text-slate-800">${item.name}</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">${item.desc}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Reset do checklist
+        function resetChecklist() {
+            const checkboxes = document.querySelectorAll('.step-checkbox');
+            checkboxes.forEach(cb => cb.checked = false);
+        }
+
+        // Event listeners & Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('batchSize').addEventListener('input', updateCalculations);
+            renderFunctionCards();
+            updateCalculations();
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

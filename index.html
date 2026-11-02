@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulação de Sabonete Líquido — Ficha Técnica</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        cyan: {
+                            50: '#ecfeff',
+                            700: '#0e7490',
+                            900: '#164e63',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-teal-100 text-teal-700 rounded-lg">
+                    <i data-lucide="flask-conical" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-slate-900 leading-tight">CosmeLab</h1>
+                    <p class="text-xs text-slate-500">Documentação Técnica de Formulação</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full border border-slate-200">
+                <i data-lucide="file-text" class="w-3.5 h-3.5 text-teal-600"></i>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-10">
+
+        <!-- Banner / Header Principal -->
+        <section class="bg-gradient-to-r from-teal-800 to-cyan-900 rounded-2xl p-6 sm:p-10 text-white shadow-lg relative overflow-hidden">
+            <div class="relative z-10 space-y-2">
+                <span class="inline-block bg-teal-500/25 text-teal-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider border border-teal-400/20">
+                    Especificação de Produto
+                </span>
+                <h1 class="text-2xl sm:text-4xl font-bold tracking-tight">Formulação de Sabonete Líquido</h1>
+                <p class="text-teal-100 text-sm sm:text-base max-w-2xl font-normal">
+                    Ingredientes, proporções e procedimento
+                </p>
+            </div>
+            <i data-lucide="beaker" class="absolute -right-6 -bottom-6 w-48 h-48 text-white/5 pointer-events-none"></i>
+        </section>
+
+        <!-- Seção 1: Ingredientes e proporções -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+                <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <i data-lucide="table" class="w-5 h-5 text-teal-600"></i>
+                    1. Ingredientes e proporções
+                </h2>
+                <p class="text-sm text-slate-600 mt-1">
+                    A formulação foi organizada a partir das anotações fornecidas.
+                </p>
+            </div>
+
+            <!-- Tabela -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+                            <th class="py-3 px-4">Ingrediente</th>
+                            <th class="py-3 px-4 text-center">Proporção (%)</th>
+                            <th class="py-3 px-4 text-right">Equivalente teórico para 1.000 g*</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="py-3 px-4 font-medium text-slate-900">Lauril</td>
+                            <td class="py-3 px-4 text-center">60%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-teal-700">600,0 g</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="py-3 px-4 font-medium text-slate-900">Dietanolamida</td>
+                            <td class="py-3 px-4 text-center">9%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-teal-700">90,0 g</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="py-3 px-4 font-medium text-slate-900">Betaína</td>
+                            <td class="py-3 px-4 text-center">9%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-teal-700">90,0 g</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="py-3 px-4 font-medium text-slate-900">Glicerina</td>
+                            <td class="py-3 px-4 text-center">7%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-teal-700">70,0 g</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="py-3 px-4 font-medium text-slate-900">EDTA</td>
+                            <td class="py-3 px-4 text-center">0,1%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-teal-700">1,0 g</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="py-3 px-4 font-medium text-slate-900">Metilparabeno</td>
+                            <td class="py-3 px-4 text-center">0,2%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-teal-700">2,0 g</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="py-3 px-4 font-medium text-slate-900">Propilparabeno</td>
+                            <td class="py-3 px-4 text-center">0,2%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-teal-700">2,0 g</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="py-3 px-4 font-medium text-slate-900">Propilenoglicol</td>
+                            <td class="py-3 px-4 text-center">5%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-teal-700">50,0 g</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="py-3 px-4 font-medium text-slate-900">Água</td>
+                            <td class="py-3 px-4 text-center">9,5%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-teal-700">95,0 g</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-slate-50 font-bold border-t border-slate-200 text-slate-900">
+                            <td class="py-3 px-4">Soma das porcentagens</td>
+                            <td class="py-3 px-4 text-center text-teal-700">100%</td>
+                            <td class="py-3 px-4 text-right text-teal-700">1.000,0 g</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <!-- Nota da Tabela -->
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-600 leading-relaxed space-y-1">
+                <span class="font-bold text-slate-800 block">*Nota sobre as quantidades:</span>
+                <p>
+                    Os valores em gramas são uma conversão matemática para um lote de 1.000 g, assumindo porcentagens em massa (m/m). Como as anotações também mencionam 1.000 mL, não interprete esses valores como mililitros; para converter massa em volume, é necessário conhecer as densidades.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção 2: Procedimento anotado por fases -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+                <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <i data-lucide="layers" class="w-5 h-5 text-teal-600"></i>
+                    2. Procedimento anotado por fases
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4">
+                <!-- Fase 1 -->
+                <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+                    <span class="inline-block text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-2.5 py-1 rounded-md">
+                        Fase 1 — Fase aquosa
+                    </span>
+                    <p class="text-sm text-slate-700 leading-relaxed pt-1">
+                        Misturar água, EDTA e glicerina em um béquer. As anotações indicam que, se os componentes não solubilizarem, pode ser necessário aquecer. Qualquer aquecimento deve ser feito com controle de temperatura e conforme as fichas de segurança dos insumos.
+                    </p>
+                </div>
+
+                <!-- Fase 2 -->
+                <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+                    <span class="inline-block text-xs font-bold uppercase tracking-wider text-cyan-800 bg-cyan-100 px-2.5 py-1 rounded-md">
+                        Fase 2 — Solubilização dos parabenos
+                    </span>
+                    <p class="text-sm text-slate-700 leading-relaxed pt-1">
+                        Misturar propilenoglicol, metilparabeno e propilparabeno em outro béquer. As anotações indicam que pode ser necessário aquecer para favorecer a solubilização; confirme as condições adequadas para os insumos usados.
+                    </p>
+                </div>
+
+                <!-- Fase 3 -->
+                <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+                    <span class="inline-block text-xs font-bold uppercase tracking-wider text-indigo-800 bg-indigo-100 px-2.5 py-1 rounded-md">
+                        Fase 3 — Base tensoativa
+                    </span>
+                    <p class="text-sm text-slate-700 leading-relaxed pt-1">
+                        Em um béquer de plástico, combinar lauril e dietanolamida. Incorporar as misturas das Fases 1 e 2 e misturar. Por último, adicionar a betaína, conforme a sequência anotada.
+                    </p>
+                </div>
+
+                <!-- Fase 4 -->
+                <div class="p-5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+                    <span class="inline-block text-xs font-bold uppercase tracking-wider text-slate-800 bg-slate-200 px-2.5 py-1 rounded-md">
+                        Fase 4 — Diluição / teste
+                    </span>
+                    <p class="text-sm text-slate-700 leading-relaxed pt-1">
+                        As anotações mencionam “diluição final 1:3 (verificar)” e um teste em béquer de 250 mL, com referências a 50 mL de produto concentrado e 100 mL de água. Como a relação entre esses valores não está clara, confirme a proporção pretendida antes de executar esta etapa.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Função geral dos ingredientes -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+                <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <i data-lucide="book-open" class="w-5 h-5 text-teal-600"></i>
+                    3. Função geral dos ingredientes
+                </h2>
+            </div>
+
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-700">
+                <li class="p-4 rounded-xl border border-slate-100 bg-slate-50/40">
+                    <strong class="text-slate-900 block mb-1">Lauril</strong>
+                    <span>Tensoativo que contribui para a limpeza e a formação de espuma.</span>
+                </li>
+                <li class="p-4 rounded-xl border border-slate-100 bg-slate-50/40">
+                    <strong class="text-slate-900 block mb-1">Dietanolamida</strong>
+                    <span>Auxilia na viscosidade e pode melhorar a estabilidade da espuma.</span>
+                </li>
+                <li class="p-4 rounded-xl border border-slate-100 bg-slate-50/40">
+                    <strong class="text-slate-900 block mb-1">Betaína</strong>
+                    <span>Tensoativo auxiliar que pode contribuir para a espuma e a suavidade da formulação.</span>
+                </li>
+                <li class="p-4 rounded-xl border border-slate-100 bg-slate-50/40">
+                    <strong class="text-slate-900 block mb-1">Glicerina</strong>
+                    <span>Umectante que ajuda a reter água.</span>
+                </li>
+                <li class="p-4 rounded-xl border border-slate-100 bg-slate-50/40">
+                    <strong class="text-slate-900 block mb-1">EDTA</strong>
+                    <span>Agente quelante, que se liga a determinados íons metálicos.</span>
+                </li>
+                <li class="p-4 rounded-xl border border-slate-100 bg-slate-50/40">
+                    <strong class="text-slate-900 block mb-1">Metilparabeno e propilparabeno</strong>
+                    <span>Conservantes destinados a ajudar a controlar o crescimento de microrganismos; a eficácia depende da formulação final.</span>
+                </li>
+                <li class="p-4 rounded-xl border border-slate-100 bg-slate-50/40">
+                    <strong class="text-slate-900 block mb-1">Propilenoglicol</strong>
+                    <span>Solvente/humectante que pode auxiliar na solubilização de outros ingredientes.</span>
+                </li>
+                <li class="p-4 rounded-xl border border-slate-100 bg-slate-50/40">
+                    <strong class="text-slate-900 block mb-1">Água</strong>
+                    <span>Veículo e diluente da formulação.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Seção 4: Observações importantes -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+                <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <i data-lucide="shield-alert" class="w-5 h-5 text-amber-600"></i>
+                    4. Observações importantes
+                </h2>
+            </div>
+
+            <ul class="space-y-3 text-sm text-slate-700">
+                <li class="flex items-start space-x-3 p-3 bg-amber-50/50 rounded-xl border border-amber-200/60">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+                    <span>Confirme se as porcentagens são m/m ou v/v e identifique a composição/concentração comercial do ingrediente chamado “lauril”.</span>
+                </li>
+                <li class="flex items-start space-x-3 p-3 bg-amber-50/50 rounded-xl border border-amber-200/60">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+                    <span>Para um produto destinado à pele, avalie pH, estabilidade, compatibilidade dos ingredientes e eficácia do sistema conservante antes do uso.</span>
+                </li>
+                <li class="flex items-start space-x-3 p-3 bg-amber-50/50 rounded-xl border border-amber-200/60">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+                    <span>Não utilize o produto com base apenas nesta transcrição; siga os procedimentos do laboratório e as fichas de segurança dos reagentes.</span>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 mt-8">
+        <p>Documentação Química e Dermatológica — Transcrição técnica de laboratório</p>
+    </footer>
+
+    <!-- Lucide Icons initialization script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
